@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-navbar>
+
+        <ion-title>Register</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list no-lines>
+
+        <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input formControlName="name" type="text"></ion-input>
+            </ion-item>
+            <ion-item
+              
+                *ngIf="( user.get('name').hasError('minlength') || user.get('name').hasError('required') ) && user.get('name').touched">
+
+                <div
+                    class="error"
+                    *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                    Name is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                    Minimum of 4 characters
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>email</ion-label>
+                <ion-input formControlName="email" type="text"></ion-input>
+            </ion-item>
+            <ion-item
+               
+                *ngIf="( user.get('email').hasError('required') || user.get('email').hasError('email') ) && user.get('email').touched">
+
+                <div
+                    class="error"
+                    *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+                    Email ID is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('email').hasError('minlength') && user.get('email').touched">
+                    Please enter valid email ID
+                </div>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Mob</ion-label>
+                <ion-input formControlName="mob" type="number"></ion-input>
+            </ion-item>
+
+            <ion-item
+                
+                *ngIf="( user.get('mob').hasError('required') || user.get('mob').hasError('minlength') || user.get('mob').hasError('maxlength'))&& user.get('mob').touched">
+
+                <div
+                    class="error"
+                    *ngIf="user.get('mob').hasError('required') && user.get('email').touched">
+                    mobile no is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('mob').hasError('minlength') && user.get('email').touched">
+                    Please enter valid mobile number
+                </div>
+
+                <div
+                    class="error"
+                    *ngIf="user.get('mob').hasError('maxlength') && user.get('email').touched">
+                    Please enter valid mobile number
+                </div>
+
+            </ion-item>
+
+            <button ion-button [disabled]="user.invalid">Sign up</button>
+        </form>
+
+    </ion-list>
+
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>

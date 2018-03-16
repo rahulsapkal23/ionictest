@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list no-lines>
+
+        <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input formControlName="username" type="text"></ion-input>
+            </ion-item>
+            <ion-item
+                no-lines
+                *ngIf="( user.get('username').hasError('minlength') || user.get('username').hasError('required') ) && user.get('username').touched">
+
+                <div
+                    class="error"
+                    *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+                    Name is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('username').hasError('minlength') && user.get('username').touched">
+                    Minimum of 4 characters
+                </div>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>password</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <ion-item
+                no-lines
+                *ngIf="( user.get('password').hasError('required') || user.get('password').hasError('password') ) && user.get('password').touched">
+
+                <div
+                    class="error"
+                    *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+                    password is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('password').hasError('minlength') && user.get('password').touched">
+                    Please enter valid password
+                </div>
+            </ion-item>
+            
+            <button ion-button full margin-top [disabled]="user.invalid">Login</button>
+
+            
+            
+
+        </form>
+
+        <button ion-button full margin-top (click)="register()">Register</button>
+    </ion-list>
+
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
