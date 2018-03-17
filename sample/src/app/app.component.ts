@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage} from '../pages/login/login';
 import { RegisterPage} from '../pages/register/register';
+import { AboutPage } from '../pages/about/about';
 
 
 
@@ -33,7 +34,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       // { title: 'Login', component: LoginPage },
-      // { title: 'Register', component: RegisterPage },
+      { title: 'About', component: AboutPage },
       { title: 'Logout', component: LoginPage }
       
       

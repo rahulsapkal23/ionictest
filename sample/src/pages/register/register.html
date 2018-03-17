@@ -10,6 +10,46 @@
     <ion-list no-lines>
 
         <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+            
+            <ion-item>
+                <ion-label floating>First Name</ion-label>
+                <ion-input formControlName="fname" type="text"></ion-input>
+            </ion-item>
+            <ion-item
+              
+                *ngIf="( user.get('fname').hasError('minlength') || user.get('fname').hasError('required') ) && user.get('fname').touched">
+
+                <div
+                    class="error"
+                    *ngIf="user.get('fname').hasError('required') && user.get('fname').touched">
+                    First Name is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('fname').hasError('minlength') && user.get('fname').touched">
+                    Minimum of 4 characters
+                </div>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label floating>Last Name</ion-label>
+                <ion-input formControlName="lname" type="text"></ion-input>
+            </ion-item>
+            <ion-item
+              
+                *ngIf="( user.get('lname').hasError('minlength') || user.get('lname').hasError('required') ) && user.get('lname').touched">
+
+                <div
+                    class="error"
+                    *ngIf="user.get('lname').hasError('required') && user.get('lname').touched">
+                    Last Name is required
+                </div>
+                <div
+                    class="error"
+                    *ngIf="user.get('lname').hasError('minlength') && user.get('lname').touched">
+                    Minimum of 4 characters
+                </div>
+            </ion-item>
 
             <ion-item>
                 <ion-label floating>Username</ion-label>
@@ -77,6 +117,7 @@
                 </div>
 
             </ion-item>
+
 
             <button ion-button [disabled]="user.invalid">Sign up</button>
         </form>

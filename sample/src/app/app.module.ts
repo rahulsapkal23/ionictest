@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import {IonicStorageModule} from '@ionic/storage';
 // import {IonicStorageModule} from '@ionic/Storage';
-
+import { AboutPage } from '../pages/about/about';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -19,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     LoginPage,
+    AboutPage,
     RegisterPage
   ],
   imports: [
@@ -32,6 +33,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     LoginPage,
+    AboutPage,
     RegisterPage
   ],
   providers: [

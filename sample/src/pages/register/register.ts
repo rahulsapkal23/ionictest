@@ -15,6 +15,8 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
 
   this.user = new FormGroup({
+  fname: new FormControl('', [Validators.required, Validators.minLength(4)]),
+  lname: new FormControl('', [Validators.required, Validators.minLength(4)]),
   name: new FormControl('', [Validators.required, Validators.minLength(4)]),
   email: new FormControl('', [Validators.required,Validators.email]),
   mob: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)])
