@@ -3,6 +3,8 @@ import { OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
+import { DatePicker } from '@ionic-native/date-picker';
+
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',
@@ -10,7 +12,9 @@ import { HomePage } from '../home/home';
 })
 export class RegisterPage implements OnInit {
   user: FormGroup;
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,private datePicker: DatePicker) {
+    
+    
 }
   ngOnInit() {
 
@@ -27,7 +31,16 @@ export class RegisterPage implements OnInit {
 
 onSubmit(): void {
  console.log("on click submit method");
- this.navCtrl.setRoot(HomePage);
+//  this.navCtrl.setRoot(HomePage);
+ 
+ this.datePicker.show({
+  date: new Date(),
+  mode: 'date',
+  // androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+}).then(
+  date => console.log('Got date: ', date),
+  err => console.log('Error occurred while getting date: ', err)
+);
 }
 
 
