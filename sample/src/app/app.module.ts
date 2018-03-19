@@ -12,6 +12,7 @@ import {IonicStorageModule} from '@ionic/storage';
 import { AboutPage } from '../pages/about/about';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DatePicker } from '@ionic-native/date-picker';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    DatePicker,
+    Map,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
